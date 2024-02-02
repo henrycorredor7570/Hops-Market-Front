@@ -1,0 +1,80 @@
+.image {
+  height: 52px;
+  width: auto;
+}
+
+.product {
+  width: 575px;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.product:hover {
+  background-color: #ddf391;
+  transition: background-color 0.3s;
+}
+
+.productHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productName {
+  font-size: 12pt;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.input {
+  margin-top: 20px;
+  width: 555px;
+  height: 60px;
+}
+
+.productReview {
+  display: grid;
+}
+
+.button {
+  margin-top:10px;
+  border: none;
+  color: #edf2db;
+  background-color: #97a663;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  font-size: 12pt;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #ddf391;
+    color: #97a663;
+  }
+}
+
+.starFill {
+  color: #97a663;
+}
+
+.starOutline {
+  color: #b1b5a4;
+}
+
+.cancelButton{
+  margin-top:10px;
+  background-color: #f2dcdb;
+  border: none;
+  color: #a66363;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  font-size: 12pt;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #a66363;
+    color: #f2dcdb;
+  }
+}

@@ -1,0 +1,11 @@
+.return {
+  align-self: flex-start;
+  background-color: transparent;
+  border: none;
+  color: #6a7346;
+  cursor: pointer;
+}
+
+.iconStyle {
+  font-size: 1.5em;
+}

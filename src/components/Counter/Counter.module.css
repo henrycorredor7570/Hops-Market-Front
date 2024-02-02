@@ -1,0 +1,42 @@
+.counter_buttons__container {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+.counter_buttons__content {
+  border: 1px solid #6a7346; /* Borde de color #97A663 */
+  background-color: transparent; /* Sin color de fondo */
+  display: flex;
+  align-items: center;
+}
+  
+.counter_buttons__button {
+  margin: 0px;
+  background: none;
+  border: none;
+  font-size: 18pt;
+  color: #6a7346;
+  font-family: Roboto, sans-serif;
+  padding: 0px 5px;
+}
+
+.counter_buttons__button:disabled {
+  color: lightgray;
+  cursor: unset;
+}
+
+.counter_buttons__text {
+  margin: 0px;
+  background: none;
+  border: none;
+  font-size: 16pt;
+  color: #6a7346;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  padding: 0px 10px;
+  min-width: 40px;
+}

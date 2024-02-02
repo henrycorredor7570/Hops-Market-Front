@@ -1,0 +1,30 @@
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.subtitle {
+  color: #b1b5a4;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: 400;
+}
+.gridContainer {
+  display: grid;
+  overflow: hidden;
+  row-gap: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.noProductsMessage {
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}

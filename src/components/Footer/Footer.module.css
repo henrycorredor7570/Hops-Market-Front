@@ -1,0 +1,79 @@
+.container {
+    height: 270px;
+    background-color: #6A7346;
+    padding: 0px 100px;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.container__left {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container__right {
+    /* font-size: 16px; */
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 50%;
+    /* justify-content: space-around; */
+    padding: 60px 0px;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.container_right__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 10%;
+}
+
+.container_right_detail__payment {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 70px;
+}
+
+.logoLight {
+    margin-left:10px;
+    width: 180px; 
+    margin-bottom: 10px;
+}
+.subtitle {
+    color: #FFFF;
+    text-align:start;
+    margin-left:10px;
+}
+.titles {
+    color: #97A663;
+    font-size: 20px;
+    width: 200px;
+}
+
+.whiteText {
+    color: white;
+    font-size: 16px;
+    width: 220px;
+}
+.paymentMethodContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.paymentMethod {
+    width: 30px;
+    margin: 2px; /* Espacio entre las imágenes */
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,48 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.leftContent {
+  position: sticky;
+  height: 690px;
+  top: 0; 
+  width: 600px; 
+  padding-top: 100px;
+  align-content: initial;
+  display: grid;
+  padding: 80px;
+  box-shadow: 4px 4px 24px rgba(139, 167, 178, 0.16);
+}
+
+.leftContent p {
+  margin-left: 15px;
+  font-size: 10pt;
+}
+
+.leftContent h2 {
+  margin-left: 15px;
+  font-size: 18pt;
+  color: #97a663;
+  font-weight: 500;
+}
+
+.leftContent a {
+  font-weight: 600;
+  color: #97a663;
+  font-size: 12pt;
+  &:hover {
+    color: #97a663;
+    font-weight: 700;
+  }
+}
+
+.leftContent a.active {
+  color: #818181;
+  font-weight: 400;
+  &:hover {
+    color: #97a663;
+    font-weight: 700;
+  }
+}
+

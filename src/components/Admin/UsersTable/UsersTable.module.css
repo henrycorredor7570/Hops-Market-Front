@@ -1,0 +1,64 @@
+.container{
+    justify-content: center;
+    align-items: center;
+}
+.subContainer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #97A663;
+    color: #EDF2DB;
+    padding: 10px 10px;
+    align-items: center;
+}
+.info{
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+}
+.userData {
+    display: flex;
+    justify-content: space-between;
+}
+.userData button{
+    background-color: rgb(240, 169, 169);
+    color: rgb(161, 52, 52);
+}
+.pagination {
+    display: flex;
+    width: 320px;
+    position: absolute;
+    right: 0;
+}
+.pagination button{
+    color: #EDF2DB;
+    background-color: #97A663;
+    border: none;
+}
+.pageNumbers{
+    display: flex;
+    gap: 4px;
+}
+.pageNumbers div {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.pageNumbers div.activePage {
+    background-color: #DDF391; /* Cambia el color de fondo para resaltar el número actual */
+    color: #B1B5A4; /* Cambia el color del texto para resaltar el número actual */
+}
+.containerUsers{
+    margin-top: 20px;
+}
+.containerInput{
+    background-color: #6A7346;
+    height: 60px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+}
+.search{
+    width: 100%;
+    font-size: 14pt;
+    color: #EDF2DB;
+}

@@ -1,0 +1,110 @@
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(237, 242, 219, 1); 
+  color: #6a7346;
+  border-radius: 4px;
+}
+
+.logo {
+  margin-top: 10px;
+  width: 160px;
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.link {
+  margin-top: 5px;
+  font-size: 14pt;
+  font-weight: 400; 
+  color: #97a663; 
+}
+
+.link:hover {
+  color: #6a7346;
+}
+
+.description {
+  margin: 0 20px;
+  font-size: 14pt;
+  font-weight: 400;
+  color: #6a7346;
+}
+
+.button {
+  background-color: #97a663;
+  border: none;
+  color: #edf2db;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  font-size: 14pt;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ddf391;
+    color: #97a663;
+  }
+}
+
+.button:hover {
+  background-color: #ddf391;
+  color:#97a663;
+}
+
+.featuredProductsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #ddf391; 
+  padding: 40px;
+}
+
+.titleFeaturedProducts {
+  font-size: 22pt;
+  font-weight: 700;
+  color: #97a663;
+  margin: 10px;
+  font-weight: 600; 
+}
+
+.subtitle {
+  font-size: 14pt;
+  font-weight: 400;
+  color: #97a663;
+  
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%; 
+  overflow: hidden;
+}
+
+.marginTwo {
+  margin-top: 40px;
+}
+
+.titleAllProducts {
+  color: #6a7346;
+  text-align: center;
+  font-size: 22pt;
+  font-weight: 700;
+}

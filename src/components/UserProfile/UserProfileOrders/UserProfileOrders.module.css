@@ -1,0 +1,127 @@
+.mainContainer h1 {
+  text-align: left;
+  font-size: 18pt;
+  color: #6a7346;
+  font-weight: 700;
+  margin-left: 110px;
+  margin-top: 134px;
+  margin-bottom: 5px;
+}
+
+.totalOrders {
+  margin-left: 110px;
+  font-size: 12pt;
+  color: #818181;
+  font-weight: 400;
+}
+
+.reviewsContainer {
+  margin-bottom: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: white;
+  width: 617px;
+  height: auto;
+  box-shadow: 4px 4px 24px rgba(139, 167, 178, 0.16);
+  border-radius: 6px;
+}
+
+.reviewsContainer button {
+  background-color: #97a663;
+  border: none;
+  color: #edf2db;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  font-size: 12pt;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ddf391;
+    color: #97a663;
+  }
+}
+
+.purchaseContainer {
+  margin-bottom: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 10px;
+  background-color: white;
+  width: 617px;
+  height: auto;
+  box-shadow: 4px 4px 24px rgba(139, 167, 178, 0.16);
+  border-radius: 6px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 30px;
+  width: auto;
+  height: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 10pt;
+  color: #818181;
+  font-weight: 400;
+}
+
+.totalSubtitle {
+  margin-left: 45px;
+}
+
+.text p {
+  font-size: 12pt;
+}
+
+.container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #97a663;
+  border: none;
+  color: #edf2db;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ddf391;
+    color: #97a663;
+  }
+}
+
+.status {
+  color: #97a663;
+  font-weight: 600;
+}

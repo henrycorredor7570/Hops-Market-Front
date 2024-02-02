@@ -1,0 +1,37 @@
+.processContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainContainer {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: #97a663;
+  border: none;
+  color: #edf2db;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  font-size: 8pt;
+  transition: background-color 0.3s;
+  height: 30px;
+  width: 100%;
+
+  &:hover {
+    background-color: #ddf391;
+    color: #97a663;
+  }
+}

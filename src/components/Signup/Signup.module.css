@@ -1,0 +1,81 @@
+.container {
+  padding: 0px !important;
+  margin: 0px !important;
+  justify-content: center;
+}
+
+.col-md-6 img {
+  height: 1920px;
+  width: auto;
+  margin-right: 0px !important;
+}
+
+.formContainer {
+  margin: 40px;
+  margin-top: 100px;
+  padding: 50px;
+  box-shadow: 4px 4px 24px rgba(139, 167, 178, 0.16);
+  border-radius: 6px;
+}
+
+.title {
+  font-size: 18pt;
+  color: #6a7346;
+  margin-bottom: 30px;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 0px;
+  border: #97a663 1px solid;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+.btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    width: 70vh;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #97a663;
+    border: none;
+    color: #edf2db;
+    border-radius: 4px;
+    padding: 6px 20px;
+    font-weight: 400;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #ddf391;
+      color: #97a663;
+    }
+  }
+  .btn:disabled {
+    background-color: #ccc; /* Color de fondo cuando está deshabilitado */
+    color: #999; /* Color del texto cuando está deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+  }
+
+.form-control:valid + label {
+  color: white !important;
+}
+.formControl:focus {
+  border-color: #97a663 !important;
+  box-shadow: 0 0 0 0.2rem rgba(151, 166, 99, 0.2) !important;
+}

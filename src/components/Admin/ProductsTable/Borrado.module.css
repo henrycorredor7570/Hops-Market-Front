@@ -1,0 +1,44 @@
+/* Estilo base para el botón */
+.button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Estilo cuando el botón está en modo "Desactivar" */
+  .desactivar {
+    background-color:  #f2dcdb;
+    border: none;
+    color:  #a66363;
+    border-radius: 4px;
+    padding: 6px 20px;
+    font-weight: 400;
+    font-size: 12pt;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #a66363;
+      color: #f2dcdb;
+    }
+  }
+  
+  /* Estilo cuando el botón está en modo "Activar" */
+  .activar {
+    background-color: #edf2db;
+    border: none;
+  /*   color: #edf2db; */
+  color:#97a663;
+    border-radius: 4px;
+    padding: 6px 20px;
+    font-weight: 400;
+    font-size: 12pt;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #ddf391;
+      color: #97a663;
+    }
+  }
+  

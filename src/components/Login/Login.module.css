@@ -1,0 +1,96 @@
+.container {
+  padding: 0px !important;
+  margin: 0px !important;
+  justify-content: center;
+}
+.col-md-6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.col-md-6 img {
+  max-width: 100%; /* Esto es correcto */
+  height: auto; /* Asegura la proporción original de la imagen */
+}
+
+.formContainer {
+  margin: 30px;
+  margin-top: 100px;
+  padding: 50px;
+  box-shadow: 4px 4px 24px rgba(139, 167, 178, 0.16);
+  border-radius: 6px;
+}
+
+.title {
+  font-size: 18pt;
+  color: #6a7346;
+  margin-bottom: 30px;
+}
+
+.Label {
+  font-size: 12pt;
+  color: #818181;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 500px;
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: #97a663;
+  border: none;
+  color: #edf2db;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 400;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ddf391;
+    color: #97a663;
+  }
+}
+
+.form-check-label {
+  font-size: 12px;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.signup {
+  color: #818181;
+  display: flex;
+  align-items: center;
+  font-size: 10pt;
+}
+
+.link {
+  margin-left: 5px;
+  font-weight: 400;
+  color: #97a663;
+}
+.link:hover {
+  color: #6a7346;
+}

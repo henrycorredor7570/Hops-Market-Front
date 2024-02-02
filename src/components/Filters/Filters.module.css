@@ -1,0 +1,19 @@
+.container {
+    background-color: #6A7346;
+    height: 60px;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+    
+}
+
+.content{
+    width: 100%;
+    gap: 30vh;
+    color: #EDF2DB;
+    align-content: center !important;
+    justify-content: center !important;
+    font-size: 14pt;
+    
+}
+

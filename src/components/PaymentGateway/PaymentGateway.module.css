@@ -1,0 +1,21 @@
+.image {
+    width: 100%;
+}
+
+.payButton {
+    background-color: #009EE3;
+    color: white;
+    padding: 14px 48px;
+    border-radius: 6px;
+    border: 0px;
+    margin-left: 18px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    height: 50px;
+    min-width: 200px;
+}
+
+.loading {
+    color: white !important;
+    margin: 0 auto;
+}

@@ -1,0 +1,64 @@
+/* Estilos para el contenedor principal */
+.mainContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Espacio entre las columnas */
+}
+
+/* Estilos para la columna izquierda */
+.leftContent {
+  margin: 60px;
+  padding: 20px;
+  width: 30%;
+  height: 90%;
+}
+
+.rightContent {
+  margin: 60px;
+  margin-left: -400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 20px; */
+  background-color: white;
+  width: 1000px; /* Ancho deseado */
+  height: 90%; /* Alto deseado */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra con valores de desplazamiento, color y opacidad */
+}
+
+/* Estilos para los elementos de nombre y apellido */
+.rowContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+}
+
+.editButton {
+  color: #ffffff;
+  background-color: #97a663;
+  border: 0px;
+  margin: 0px;
+  padding: 5px 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 4px;
+}
+
+.dona {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.text {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.continer_graphics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}

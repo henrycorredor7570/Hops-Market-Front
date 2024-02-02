@@ -1,0 +1,48 @@
+.product {
+  width: 575px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.productHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  color: #97a663;
+  font-weight: 700;
+}
+
+
+
+.productName {
+  margin-top: 15px;
+  font-size: 12pt;
+  font-weight: 400;
+}
+
+.productReview {
+  font-size: 12pt;
+  font-weight: 400;
+  color: #B1B5A4;
+}
+
+.starFill {
+  color: #97a663;
+}
+
+.starOutline {
+  color: #B1B5A4;
+}
+

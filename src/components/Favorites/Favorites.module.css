@@ -1,0 +1,10 @@
+.container {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}

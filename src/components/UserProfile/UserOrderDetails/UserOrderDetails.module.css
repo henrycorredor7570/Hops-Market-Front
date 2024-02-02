@@ -1,0 +1,86 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  margin-right: 60px;
+  margin-top: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+  width: 616px;
+  height: auto;
+  box-shadow: 4px 4px 24px rgba(139, 167, 178, 0.16);
+  border-radius: 6px;
+}
+
+.header {
+  margin-top: 80px;
+  font-size: 10pt;
+  color: #818181;
+  font-weight: 400;
+  margin-left: 60px;
+}
+
+.backButton {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+.mainContainer h1 {
+  text-align: left;
+  margin-left: 0;
+  font-size: 18pt;
+  color: #6a7346;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.id {
+  font-size: 12pt;
+  color: #6a7346;
+  font-weight: 400;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+.rowDescription {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  font-size: 12pt;
+  color: black;
+  font-weight: 400;
+}
+
+.state {
+  color: #97a663;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 12pt;
+  color: #6a7346;
+  font-weight: 00;
+}
+
+.country,
+.quantity,
+.subtotal,
+.postalCode {
+  font-weight: 400;
+}
+
+.postalcode {
+  margin-left: 120px;
+}
+
+.line{
+    background-color: #6a7346; 
+    height: 3px; 
+    margin: 20px 0;}

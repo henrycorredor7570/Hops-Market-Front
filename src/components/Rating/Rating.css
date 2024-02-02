@@ -1,0 +1,5 @@
+.starFill:hover {
+  stroke: blue; /* Cambia el color del borde a azul */
+  stroke-width: 3px;
+}
+
