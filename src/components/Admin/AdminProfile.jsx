@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { getLoggedInUser } from "../../utils/UserUtils";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"; 
 import { useParams, useNavigate } from "react-router-dom";
 import { getUserInfo } from "../../redux/actions/actions";
 import Create from "../Create/Create";
