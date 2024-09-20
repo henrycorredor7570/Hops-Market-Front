@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import style from "./Card.module.css";
-import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import style from "./Card.module.css";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
-const CardP = ({ id, title, price, image, stock }) => {
+const CardP = ({id, name, price, image, stock}) => {
   return (
     <div className={style.container}>
       <Card style={{ width: "255px", height: "450px", border: "none" }}>
@@ -15,7 +14,7 @@ const CardP = ({ id, title, price, image, stock }) => {
         </div>
         <Card.Body>
           <div className={style.infoWrapper}>
-            <Card.Title>{title}</Card.Title>
+            <Card.Title>{name}</Card.Title>
             <div className={style.row}>
                 <Card.Text className={style.customTextColor}>
                   ${price}

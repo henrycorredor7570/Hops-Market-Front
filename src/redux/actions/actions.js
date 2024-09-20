@@ -239,17 +239,10 @@ export const getUserInfo = (id) => {
           postalCode: response.data.postalCode || "",
           password: response.data.password || "",
         };
-
-        dispatch({
-          type: GET_USER_INFO,
-          payload: userData,
-        });
-
+        dispatch({ type: GET_USER_INFO, payload: userData });
         return userData;
       }
-    } catch (error) {
-      console.error("Error al obtener los datos del usuario", error);
-    }
+    } catch (error) { console.error("Error al obtener los datos del usuario", error) }
   };
 };
 
@@ -260,52 +253,30 @@ export const updateUser = (id, userData) => {
         console.error("Los datos del usuario son inválidos.");
         return;
       }
-      const response = await HopPassionClient.put(
-        `/users/update/${id}`,
-        userData
-      );
+      const response = await HopPassionClient.put(`/users/update/${id}`, userData);
       if (response.status === 200) {
         updateUserLocal(response.data.token);
         dispatch({ type: UPDATE_USER, payload: response.data.data });
         return response.data;
-      } else {
-        console.error("Error al actualizar el usuario:", response);
-      }
-    } catch (error) {
-      console.error("Error al actualizar el usuario:", error);
-    }
+      } else { console.error("Error al actualizar el usuario:", response) }
+    } catch (error) { console.error("Error al actualizar el usuario:", error) }
   };
 };
 
 export const processPayment = async (formData) => {
   try {
-    const response = await axios.post("/process_payment", formData, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await axios.post("/process_payment", formData, { headers: { "Content-Type": "application/json" } });
     console.log(response.data);
     return response.data;
-  } catch (error) {
-    console.error(error);
-    alert(error.message);
-    throw error;
-  }
+  } catch (error) { console.error(error); alert(error.message); throw error; }
 };
 
 export const getTotalSales = () => {
   return async (dispatch) => {
     try {
-      const { data } = await HopPassionClient.get(
-        "/stadistics/historixalTotalSales"
-      );
-      dispatch({
-        type: GET_TOTALSALES,
-        payload: data.data,
-      });
-    } catch (error) {
-      alert(error.message);
-    }
+      const { data } = await HopPassionClient.get("/stadistics/historixalTotalSales");
+      dispatch({ type: GET_TOTALSALES, payload: data.data });
+    } catch (error) { alert(error.message) }
   };
 };
 
@@ -314,14 +285,9 @@ export const getTotalUsers = async () => {
     try {
       const { data } = await HopPassionClient.get("/stadistics/totalUsers");
       console.log("estos son los datos", data);
-      dispatch({
-        type: GET_TOTAL_USERS,
-        payload: data.data,
-      });
+      dispatch({ type: GET_TOTAL_USERS, payload: data.data });
       return data.data;
-    } catch (error) {
-      window.alert(error.message);
-    }
+    } catch (error) { window.alert(error.message) }
   };
 };
 
@@ -332,47 +298,28 @@ export const updateProduct = (id, productData) => {
         console.error("Los datos del producto son inválidos.");
         return;
       }
-
       console.log("Datos a enviar:", productData);
-
-      const response = await HopPassionClient.put(
-        `/product/${id}`,
-        productData
-      );
+      const response = await HopPassionClient.put(`/product/${id}`, productData);
       console.log("Respuesta del servidor:", response.data);
-
       if (response.status === 200) {
         dispatch({ type: UPDATE_PRODUCT, payload: response.data });
         return response.data;
-      } else {
-        console.error("Error al actualizar el producto:", response);
-      }
-    } catch (error) {
-      console.error("Error al actualizar el producto:", error);
-    }
+      } else { console.error("Error al actualizar el producto:", response)}
+    } catch (error) { console.error("Error al actualizar el producto:", error) }
   };
 };
 
 export const getUserByName = (name) => {
   return async function (dispatch) {
     try {
-      const info = await HopPassionClient.get(`users/allUsers?name=${name}`);
+      const info = await HopPassionClient.get(`/users/allUsers?name=${name}`);
       const userName = info.data;
-      if (!userName.length)
-        throw Error(`No hay usuarios asociados con el nombre: ${name}`);
-      return dispatch({
-        type: GET_USER_BY_NAME,
-        payload: userName,
-      });
-    } catch (error) {
-      alert(error.message);
-    }
+      if (!userName.length) throw Error(`No hay usuarios asociados con el nombre: ${name}`);
+      return dispatch({ type: GET_USER_BY_NAME, payload: userName });
+    } catch (error) { alert(error.message) }
   };
 };
 
 export const udateUserToken = (userData) => {
-  return {
-    type: UPDATE_USER_STATE,
-    payload: userData,
-  };
+  return { type: UPDATE_USER_STATE, payload: userData };
 };
