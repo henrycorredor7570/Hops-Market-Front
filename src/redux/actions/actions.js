@@ -1,55 +1,17 @@
 import axios from "axios";
 import HopPassionClient from "../../utils/NetworkingUtils";
-import {
-  handleUserLogin,
-  getLoggedInUser,
-  handleUserLogout,
-  updateUserLocal,
-} from "../../utils/UserUtils";
-import {
-  SIGNUP,
-  LOGIN,
-  LOGOUT,
-  GET_USERS,
-  SYNC_AUTH_STATE,
-  GET_PRODUCTS_BYID,
-  GET_PRODUCTS,
-  LOADING_PRODUCT,
-  CREATE_PRODUCT,
-  GET_CATEGORIES,
-  SET_FILTERS,
-  SET_SEARCH_QUERY,
-  GET_NEXT_PRODUCT_PAGE,
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-  CLEAR_CART,
-  GET_CART,
-  GET_CART_REQUEST,
-  GET_USER_INFO,
-  UPDATE_USER,
-  GET_REVIEWS,
-  GET_TOTALSALES,
-  GET_TOTAL_USERS,
-  UPDATE_PRODUCT,
-  CLEAN_REVIEWS,
-  GET_REVIEWS_UNREVIEWED,
-  REVIEW_PROCESSED,
-  DELETE_REVIEW,
-  GET_USER_BY_NAME,
-  UPDATE_USER_STATE,
-  CHANGE_PASSWORD,
-} from "./actions-type";
+import { handleUserLogin, getLoggedInUser, handleUserLogout, updateUserLocal} from "../../utils/UserUtils";
+import {SIGNUP, LOGIN, LOGOUT, GET_USERS, SYNC_AUTH_STATE, GET_PRODUCTS_BYID, GET_PRODUCTS, LOADING_PRODUCT, CREATE_PRODUCT, GET_CATEGORIES, SET_FILTERS, SET_SEARCH_QUERY,
+        GET_NEXT_PRODUCT_PAGE, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART, GET_CART, GET_CART_REQUEST, GET_USER_INFO, UPDATE_USER, GET_REVIEWS, GET_TOTALSALES,GET_TOTAL_USERS,
+        UPDATE_PRODUCT, CLEAN_REVIEWS, GET_REVIEWS_UNREVIEWED, REVIEW_PROCESSED, DELETE_REVIEW, GET_USER_BY_NAME, UPDATE_USER_STATE,  CHANGE_PASSWORD,
+      } from "./actions-type";
 
 export const changePassword = (id, password) => {
   return async function (dispatch) {
     try {
-      await HopPassionClient.delete(`users/password/${id}`, password);
-      return dispatch({
-        type: CHANGE_PASSWORD,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
+      await HopPassionClient.delete(`/users/password/${id}`, password);
+      return dispatch({type: CHANGE_PASSWORD});
+    } catch (error) { console.log(error.message) }
   };
 };
 
@@ -57,41 +19,23 @@ export const deleteReview = (idReview) => {
   return async function (dispatch) {
     try {
       await HopPassionClient.delete(`/review/delete/${idReview}`);
-      return dispatch({
-        type: DELETE_REVIEW,
-        payload: idReview,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
+      return dispatch({type: DELETE_REVIEW, payload: idReview});
+    } catch (error) { console.log(error.message) }
   };
 };
 
 export const reviewProcessed = (idReview) => {
   return async function (dispatch) {
     try {
-      const responre = await HopPassionClient.put(
-        `/review/update/${idReview}`,
-        {
-          isReviewed: true,
-        }
-      );
-      console.log(responre);
-      return dispatch({
-        type: REVIEW_PROCESSED,
-        payload: idReview,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
+      await HopPassionClient.put(`/review/update/${idReview}`, { isReviewed: true});
+      return dispatch({ type: REVIEW_PROCESSED, payload: idReview});
+    } catch (error) { console.log(error.message) }
   };
 };
 
 export const cleanReviews = () => {
   return function (dispatch) {
-    return dispatch({
-      type: CLEAN_REVIEWS,
-    });
+    return dispatch({ type: CLEAN_REVIEWS });
   };
 };
 
@@ -99,30 +43,17 @@ export const getReviewsUnreviewed = () => {
   return async function (dispatch) {
     try {
       const { data } = await HopPassionClient.get(`/review/unreviewed`);
-      return dispatch({
-        type: GET_REVIEWS_UNREVIEWED,
-        payload: data,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
+      return dispatch({ type: GET_REVIEWS_UNREVIEWED, payload: data });
+    } catch (error) { console.log(error.message) }
   };
 };
 
 export const getReviews = (idProd, idUsuario) => {
   return async function (dispatch) {
     try {
-      const response = await HopPassionClient.get(
-        `/review/list?idProd=${idProd}&idUsuario=${idUsuario}`
-      );
-
-      return dispatch({
-        type: GET_REVIEWS,
-        payload: response.data,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
+      const response = await HopPassionClient.get(`/review/list?idProd=${idProd}&idUsuario=${idUsuario}`);
+      return dispatch({ type: GET_REVIEWS, payload: response.data });
+    } catch (error) { console.log(error.message) }
   };
 };
 
@@ -130,49 +61,19 @@ export const getUsers = () => {
   return async function (dispatch) {
     try {
       const response = await HopPassionClient.get(`/users/allUsers`);
-      return dispatch({
-        type: GET_USERS,
-        payload: response.data,
-      });
-    } catch (error) {
-      console.log(error.message);
-    }
+      return dispatch({ type: GET_USERS, payload: response.data });
+    } catch (error) { console.log(error.message) }
   };
 };
 
-export const signup = ({
-  name,
-  lastName,
-  address,
-  email,
-  phone,
-  password,
-  city,
-  postalCode,
-  country,
-}, callback) => {
+export const signup = ({ name,lastName,address,email,phone,password,city,postalCode,country}, callback) => {
   return async function (dispatch) {
     try {
-      const response = await HopPassionClient.post("/users/signup", {
-        name,
-        lastName,
-        address,
-        email,
-        phone,
-        password,
-        city,
-        postalCode,
-        country,
-      });
+      const response = await HopPassionClient.post("/users/signup", {name,lastName,address,email,phone,password,city,postalCode,country});
       handleUserLogin(response.data);
       callback()
-      dispatch({
-        type: SIGNUP,
-        payload: getLoggedInUser(),
-      });
-    } catch (error) {
-      alert(error.message);
-    }
+      dispatch({type: SIGNUP,payload: getLoggedInUser()});
+    } catch (error) { alert(error.message) }
   };
 };
 
@@ -181,13 +82,8 @@ export const login = (userData, handleLoginError) => {
     try {
       const response = await HopPassionClient.post("/users/signin", userData);
       handleUserLogin(response.data.token);
-      dispatch({
-        type: LOGIN,
-        payload: getLoggedInUser(),
-      });
-    } catch (error) {
-      handleLoginError(error);
-    }
+      dispatch({ type: LOGIN, payload: getLoggedInUser() });
+    } catch (error) { handleLoginError(error) }
   };
 };
 
@@ -200,63 +96,41 @@ export const syncAuthState = () => {
   return { type: SYNC_AUTH_STATE, payload: getLoggedInUser() };
 };
 
-export function getProductById(id) {
+export const getProductById = (id) => {
   return async function (dispatch) {
     try {
       dispatch({ type: LOADING_PRODUCT });
       const response = await HopPassionClient.get("/product/" + id);
       const productData = response.data;
-
-      dispatch({
-        type: GET_PRODUCTS_BYID,
-        payload: productData,
-      });
-    } catch (error) {
-      console.error("Error al obtener el producto por ID:", error);
-    }
+      dispatch({ type: GET_PRODUCTS_BYID, payload: productData});
+    } catch (error) { console.error("Error al obtener el producto por ID:", error) }
   };
-}
+};
 
 export const getProducts = (filters, query) => {
   return async (dispatch) => {
     try {
-      try {
-        const result = await HopPassionClient.get(
-          buildGetProductsUrl(filters, query)
-        );
-        dispatch({ type: GET_PRODUCTS, payload: result.data });
-      } catch (error) {
-        console.log("no se encontraron coincidencias");
-      }
-    } catch (error) {
-      console.log(error);
-    }
+      const result = await HopPassionClient.get(buildGetProductsUrl(filters, query));
+      dispatch({ type: GET_PRODUCTS, payload: result.data });
+    } catch (error) { console.log(error)}
   };
 };
 
 export const getNextProductPage = (filters, query, page) => {
   return async (dispatch) => {
     try {
-      const result = await HopPassionClient.get(
-        buildGetProductsUrl(filters, query, page + 1)
-      );
+      const result = await HopPassionClient.get(buildGetProductsUrl(filters, query, page + 1));
       dispatch({ type: GET_NEXT_PRODUCT_PAGE, payload: result.data });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) { console.log(error)}
   };
 };
 
 const buildGetProductsUrl = (filters, query, page) => {
   let baseUrl = "/product/all?";
   const params = [];
-
   const addParam = (key, value) => {
-    if (value) {
-      params.push(`${key}=${encodeURIComponent(value)}`);
-    }
+    if (value) { params.push(`${key}=${encodeURIComponent(value)}`) }
   };
-
   addParam("country", filters.country);
   addParam("order", filters.order ? filters.order.id : null);
   addParam("category", filters.category ? filters.category.id : null);
@@ -271,9 +145,7 @@ export const getCategories = () => {
     try {
       const response = await HopPassionClient.get("/categories/all");
       dispatch({ type: GET_CATEGORIES, payload: response.data });
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) { console.log(error.message)}
   };
 };
 
@@ -285,36 +157,12 @@ export const setSearchQuery = (query) => {
   return { type: SET_SEARCH_QUERY, payload: query };
 };
 
-export const createProduct = ({
-  name,
-  image,
-  description,
-  country,
-  category,
-  price,
-  stock,
-  amountMl,
-  alcoholContent,
-}) => {
+export const createProduct = ({name,image,description,country,category,price,stock,amountMl,alcoholContent}) => {
   return async function (dispatch) {
     try {
-      await HopPassionClient.post("/product/create", {
-        name,
-        image,
-        description,
-        country,
-        category,
-        price,
-        stock,
-        amountMl,
-        alcoholContent,
-      });
-      return dispatch({
-        type: CREATE_PRODUCT,
-      });
-    } catch (error) {
-      alert(error.message);
-    }
+      await HopPassionClient.post("/product/create", {name,image,description,country,category,price,stock,amountMl,alcoholContent});
+      return dispatch({ type: CREATE_PRODUCT });
+    } catch (error) { alert(error.message) }
   };
 };
 
@@ -323,9 +171,7 @@ export const getCart = () => {
     try {
       const response = await HopPassionClient.get("/cart");
       dispatch({ type: GET_CART, payload: response.data });
-    } catch (error) {
-      console.log(error.message);
-    }
+    } catch (error) { console.log(error.message) }
   };
 };
 
@@ -336,76 +182,44 @@ export const getCartRequest = () => {
 export const addToCart = (id, quantity, callback) => {
   return async (dispatch) => {
     try {
-      const response = await HopPassionClient.put("/cart/set", {
-        productId: id,
-        quantity: quantity,
-      });
+      const response = await HopPassionClient.put("/cart/set", { productId: id, quantity: quantity});
       dispatch({ type: ADD_TO_CART, payload: response.data });
       callback(true);
-    } catch (error) {
-      console.log(error);
-      callback(false);
-    }
+    } catch (error) { console.log(error); callback(false);}
   };
 };
 
 export const removeFromCart = (id, callback) => {
   return async (dispatch) => {
     try {
-      const response = await HopPassionClient.put("/cart/set", {
-        productId: id,
-        quantity: 0,
-      });
+      const response = await HopPassionClient.put("/cart/set", { productId: id, quantity: 0});
       dispatch({ type: REMOVE_FROM_CART, payload: response.data });
       callback(true);
-    } catch (error) {
-      console.log(error);
-      callback(false);
-    }
+    } catch (error) { console.log(error); callback(false);}
   };
 };
 
 export const clearCart = () => {
-  return {
-    type: CLEAR_CART,
-  };
+  return { type: CLEAR_CART };
 };
 
 export const signupOauth2 = (userGoogleToken, handleSignupError) => {
   return async function (dispatch) {
     try {
-      const response = await HopPassionClient.post("/users/signup/oauth2.0", {
-        tokenId: userGoogleToken,
-      });
-
+      const response = await HopPassionClient.post("/users/signup/oauth2.0", { tokenId: userGoogleToken });
       handleUserLogin(response.data.message);
-
-      return dispatch({
-        type: LOGIN,
-        payload: getLoggedInUser(),
-      });
-    } catch (error) {
-      handleSignupError(error);
-    }
+      return dispatch({type: LOGIN, payload: getLoggedInUser()});
+    } catch (error) { handleSignupError(error) }
   };
 };
 
 export const loginOauth = (userCredentials, handleLoginError) => {
   return async function (dispatch) {
     try {
-      const response = await HopPassionClient.post("/users/login/oauth2.0", {
-        tokenId: userCredentials,
-      });
-
+      const response = await HopPassionClient.post("/users/login/oauth2.0", { tokenId: userCredentials });
       handleUserLogin(response.data.token);
-
-      return dispatch({
-        type: LOGIN,
-        payload: getLoggedInUser(),
-      });
-    } catch (error) {
-      handleLoginError();
-    }
+      return dispatch({ type: LOGIN, payload: getLoggedInUser()});
+    } catch (error) { handleLoginError() }
   };
 };
 

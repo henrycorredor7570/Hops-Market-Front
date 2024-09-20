@@ -45,8 +45,6 @@ export default function CardContainer() {
     dispatch(getNextProductPage(filters, searchQuery, page.page));
   }
 
-  console.log(products.length);
-
   return (
     <>
       {products.length === 0 ? (
