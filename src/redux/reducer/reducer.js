@@ -29,6 +29,24 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_NEXT_PRODUCT_PAGE: {
+      const list = (state.products ? state.products.products : []).concat(action.payload.products);
+      return {
+        ...state,
+        products: {
+          ...action.payload,
+          products: list,
+        }
+      };
+    }
+    case UPDATE_PRODUCT:{
+      const updateProduct = action.payload; // Los nuevos datos del producto a actualizar
+      const updateProducts = state.products.map((product) => {
+        if (product.id === updateProduct.id) return updateProduct;
+        else return product;
+      });
+      return {...state,products: updateProducts};
+    }
     case CHANGE_PASSWORD:{
       return {...state};
     }
@@ -89,16 +107,6 @@ const rootReducer = (state = initialState, action) => {
     case DELETE_PRODUCTS:{
       return {...state,products: []};
     }
-    case GET_NEXT_PRODUCT_PAGE: {
-      const list = (state.products ? state.products.products : []).concat(action.payload.products);
-      return {
-        ...state,
-        products: {
-          ...action.payload,
-          products: list,
-        }
-      };
-    }
     case GET_CART:{
       return {...state,cart: setCart(state.cart, action.payload)};
     }
@@ -129,14 +137,6 @@ const rootReducer = (state = initialState, action) => {
     }
     case UPDATE_USER:{
       return {...state,user: action.payload};
-    }
-    case UPDATE_PRODUCT:{
-      const updateProduct = action.payload; // Los nuevos datos del producto a actualizar
-      const updateProducts = state.products.map((product) => {
-        if (product.id === updateProduct.id) return updateProduct;
-        else return product;
-      });
-      return {...state,products: updateProducts};
     }
     case GET_USER_BY_NAME:{
       return {...state,users: action.payload};
