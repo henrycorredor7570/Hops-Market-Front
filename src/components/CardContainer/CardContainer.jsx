@@ -7,6 +7,7 @@ import style from "../CardContainer/CardContainer.module.css";
 import { getProducts, getNextProductPage } from "../../redux/actions/actions";
 import Card from "../Card/Card";
 import Loading from "../Loading/Loading";
+import products from "../../utils/arrayProductos";
 
 export default function CardContainer() {
   const dispatch = useDispatch();
@@ -17,8 +18,8 @@ export default function CardContainer() {
     [selectProducts], 
     (products) => {return products});
 
-  const products = useSelector(getMemoizedProducts);
-
+  // const products = useSelector(getMemoizedProducts);
+    
   const selectPage = (state) => state.products ? state.products.page : { page: 1, hasMore: true };
   const filters = useSelector((state) => state.filters);
   const searchQuery = useSelector((state) => state.query);

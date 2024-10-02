@@ -6,6 +6,57 @@ import {SIGNUP, LOGIN, LOGOUT, GET_USERS, SYNC_AUTH_STATE, GET_PRODUCTS_BYID, GE
         UPDATE_PRODUCT, CLEAN_REVIEWS, GET_REVIEWS_UNREVIEWED, REVIEW_PROCESSED, DELETE_REVIEW, GET_USER_BY_NAME, UPDATE_USER_STATE,  CHANGE_PASSWORD,
       } from "./actions-type";
 
+export const getNextProductPage = (filters, query, page) => {
+  return async (dispatch) => {
+    try {
+      const result = await HopPassionClient.get(buildGetProductsUrl(filters, query, page + 1));
+      dispatch({ type: GET_NEXT_PRODUCT_PAGE, payload: result.data });
+    } catch (error) { console.log(error)}
+  };
+};
+
+export const getProducts = (filters, query) => {
+  return async (dispatch) => {
+    try {
+      const result = await HopPassionClient.get(buildGetProductsUrl(filters, query));
+      dispatch({ type: GET_PRODUCTS, payload: result.data });
+    } catch (error) { console.log(error)}
+  };
+};
+
+const buildGetProductsUrl = (filters, query, page) => {
+  let baseUrl = "/product/all?";
+  const params = [];
+  const addParam = (key, value) => {
+    if (value) { params.push(`${key}=${encodeURIComponent(value)}`) }
+  };
+  addParam("country", filters.country);
+  addParam("order", filters.order ? filters.order.id : null);
+  addParam("category", filters.category ? filters.category.id : null);
+  addParam("query", query);
+  addParam("page", page);
+
+  return baseUrl + params.join("&");
+};
+
+export const updateProduct = (id, productData) => {
+  return async (dispatch) => {
+    try {
+      if (!productData) {
+        console.error("Los datos del producto son inválidos.");
+        return;
+      }
+      console.log("Datos a enviar:", productData);
+      const response = await HopPassionClient.put(`/product/${id}`, productData);
+      console.log("Respuesta del servidor:", response.data);
+      if (response.status === 200) {
+        dispatch({ type: UPDATE_PRODUCT, payload: response.data });
+        return response.data;
+      } else { console.error("Error al actualizar el producto:", response)}
+    } catch (error) { console.error("Error al actualizar el producto:", error) }
+  };
+};
+
 export const changePassword = (id, password) => {
   return async function (dispatch) {
     try {
@@ -105,39 +156,6 @@ export const getProductById = (id) => {
       dispatch({ type: GET_PRODUCTS_BYID, payload: productData});
     } catch (error) { console.error("Error al obtener el producto por ID:", error) }
   };
-};
-
-export const getProducts = (filters, query) => {
-  return async (dispatch) => {
-    try {
-      const result = await HopPassionClient.get(buildGetProductsUrl(filters, query));
-      dispatch({ type: GET_PRODUCTS, payload: result.data });
-    } catch (error) { console.log(error)}
-  };
-};
-
-export const getNextProductPage = (filters, query, page) => {
-  return async (dispatch) => {
-    try {
-      const result = await HopPassionClient.get(buildGetProductsUrl(filters, query, page + 1));
-      dispatch({ type: GET_NEXT_PRODUCT_PAGE, payload: result.data });
-    } catch (error) { console.log(error)}
-  };
-};
-
-const buildGetProductsUrl = (filters, query, page) => {
-  let baseUrl = "/product/all?";
-  const params = [];
-  const addParam = (key, value) => {
-    if (value) { params.push(`${key}=${encodeURIComponent(value)}`) }
-  };
-  addParam("country", filters.country);
-  addParam("order", filters.order ? filters.order.id : null);
-  addParam("category", filters.category ? filters.category.id : null);
-  addParam("query", query);
-  addParam("page", page);
-
-  return baseUrl + params.join("&");
 };
 
 export const getCategories = () => {
@@ -288,24 +306,6 @@ export const getTotalUsers = async () => {
       dispatch({ type: GET_TOTAL_USERS, payload: data.data });
       return data.data;
     } catch (error) { window.alert(error.message) }
-  };
-};
-
-export const updateProduct = (id, productData) => {
-  return async (dispatch) => {
-    try {
-      if (!productData) {
-        console.error("Los datos del producto son inválidos.");
-        return;
-      }
-      console.log("Datos a enviar:", productData);
-      const response = await HopPassionClient.put(`/product/${id}`, productData);
-      console.log("Respuesta del servidor:", response.data);
-      if (response.status === 200) {
-        dispatch({ type: UPDATE_PRODUCT, payload: response.data });
-        return response.data;
-      } else { console.error("Error al actualizar el producto:", response)}
-    } catch (error) { console.error("Error al actualizar el producto:", error) }
   };
 };
 

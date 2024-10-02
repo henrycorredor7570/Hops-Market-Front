@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import style from "./Card.module.css";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
-const CardP = ({id, name, price, image, stock}) => {
+const CardP = ({id, title, price, image, stock}) => {
   return (
     <div className={style.container}>
       <Card style={{ width: "255px", height: "450px", border: "none" }}>
@@ -14,10 +14,10 @@ const CardP = ({id, name, price, image, stock}) => {
         </div>
         <Card.Body>
           <div className={style.infoWrapper}>
-            <Card.Title>{name}</Card.Title>
+            <Card.Title>{title}</Card.Title>
             <div className={style.row}>
                 <Card.Text className={style.customTextColor}>
-                  ${price}
+                  $ {price}
                 </Card.Text>
             </div>
           </div>
